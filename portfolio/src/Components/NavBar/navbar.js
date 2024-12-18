@@ -1,8 +1,8 @@
-import React from 'react';
-import './navbar.css';
-import logo from '../../Assets/Logo1.png';
-import contect_logo from '../../Assets/contect.svg';
-import {Link} from 'react-scroll';
+import React from 'react'
+import './navbar.css'
+import logo from '../../Assets/Logo1.png'
+import contect_logo from '../../Assets/contect.svg'
+import {Link} from 'react-scroll'
 
 const Navbar = () => {
     return (
