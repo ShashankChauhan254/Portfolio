@@ -1,7 +1,7 @@
 .navbar {
     height: 5rem;
-    width: 100vw;
-    min-width: 75rem;
+    width: 80vw;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
