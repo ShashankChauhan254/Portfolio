@@ -1,7 +1,7 @@
 import React from 'react';
 import './intro.css';
 import bg from '../../Assets/My.png';
-import ReactTyped from react-typed;
+import ReactTyped from 'react-typed';
 import { Link } from 'react-scroll';
 import ResumeLogo from '../../Assets/Resume.png'
 import Resume from '../../Assets/Resume.pdf';
