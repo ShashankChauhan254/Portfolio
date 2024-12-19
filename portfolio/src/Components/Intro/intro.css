@@ -8,17 +8,17 @@ intro {
 
 .bg {
     position: absolute;
-    top: -4rem;
+    top: 4rem;
     right: 0;
     z-index: -1;
     object-fit: cover;
-    height: 100vh;
+    height: 90vh;
 }
 
-.introContent {
+.IntroContent {
     height: 100vh;
     width: 100vw;
-    padding: 2rem;
+    padding: 2rem 2rem 2rem 5rem;
     font-size: 3rem;
     font-weight: 700;
     display: flex;
@@ -27,7 +27,7 @@ intro {
 }
 
 .hello {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 100;
 }
 
@@ -35,11 +35,10 @@ intro {
     color: yellow;
 }
 
-.profession {
-}
-
 .btn {
-    border-color: white;
+    display: flex;
+    align-items: center;
+    background-color: white;
     margin: 1rem 0;
     padding: 0.75rem 1.5rem;
     border: none;
@@ -49,11 +48,5 @@ intro {
 .ResumeLogo {
     object-fit: cover;
     margin: 0 0.25rem;
-    height: 1rem;
-}
-
-@media screen and (max-width: 840px) {
-    .bg {
-        right: -10vw;
-    }
+    height: 2rem;
 }
