@@ -13,7 +13,6 @@ const Navbar = () => {
                 <Link className='decktopMenuItems'>About</Link>
                 <Link className='decktopMenuItems'>Education</Link>
                 <Link className='decktopMenuItems'>Project</Link>
-                <Link className='decktopMenuItems'>Skills</Link>
                 <Link className='decktopMenuItems'>Positons</Link>
             </div>
             <button className='contectButton'>
