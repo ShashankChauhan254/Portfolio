@@ -8,7 +8,7 @@ intro {
 
 .bg {
     position: absolute;
-    top: 4rem;
+    top: -4rem;
     right: 0;
     z-index: -1;
     object-fit: cover;
@@ -19,17 +19,6 @@ intro {
     height: 100vh;
     width: 100vw;
     padding: 2rem 2rem 2rem 5rem;
-    top: -4rem;
-    right: 0;
-    z-index: -1;
-    object-fit: cover;
-    height: 100vh;
-}
-
-.introContent {
-    height: 100vh;
-    width: 100vw;
-    padding: 2rem;
     font-size: 3rem;
     font-weight: 700;
     display: flex;
@@ -38,7 +27,6 @@ intro {
 }
 
 .hello {
-    font-size: 2rem;
     font-size: 1rem;
     font-weight: 100;
 }

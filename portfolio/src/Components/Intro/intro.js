@@ -22,7 +22,6 @@ const Intro = () => {
                 />
                 </span>
                 <p className='introPara'></p>
-                <Link><button className='btn'><img src={ResumeLogo} art='' className='ResumeLogo' /><span>Resume</span></button></Link>
                 <Link><button className='btn'><img src={ResumeLogo} art='' className='ResumeLogo' />Resume</button></Link>
             </div>
             <img src={bg} alt="Portfolio" className='bg' />
