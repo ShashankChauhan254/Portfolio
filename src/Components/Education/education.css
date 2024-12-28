@@ -1,4 +1,4 @@
-#skills {
+#education {
     overflow: hidden;
     width: 100vw;
     max-width: 65rem;
@@ -10,22 +10,14 @@
     margin: 0 auto;
 }
 
-.Title {
-    color: yellow;
-    font-size: 3rem;
-    font-weight: 600;
-    padding-top: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-.SkillBars {
+.EducationContainer {
     margin: 1.5rem;
     width: 100vw;
     max-width: 80%;
     text-align: left;
 }
 
-.SkillBar {
+.EducationBar {
     display: flex;
     padding: 1.5rem 2rem;
     border-radius: 0.5rem;
@@ -34,11 +26,11 @@
     margin: 1rem auto;
 }
 
-.SkillBar:hover {
+.EducationBar:hover {
     transform: scale(1.01);
 }
 
-.skillBarImg {
+.EducationBarImg {
     object-fit: cover;
     height: 5rem;
     width: 5rem;

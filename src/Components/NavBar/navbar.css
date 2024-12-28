@@ -42,6 +42,11 @@
     border-radius: 2rem;
 }
 
+.contectButton:hover {
+    background: yellow;
+    color: #000;
+}
+
 .contectIcon {
     object-fit: cover;
     height: 1rem;
