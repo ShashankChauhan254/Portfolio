@@ -13,12 +13,13 @@ intro {
     z-index: -1;
     object-fit: cover;
     height: 90vh;
+    padding: 0rem 5rem 0rem 0rem;
 }
 
 .IntroContent {
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
-    padding: 2rem 2rem 2rem 5rem;
+    padding: 0rem 0rem 0rem 10rem;
     font-size: 3rem;
     font-weight: 700;
     display: flex;
