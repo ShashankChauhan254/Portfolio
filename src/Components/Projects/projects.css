@@ -1,0 +1,66 @@
+#Project {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.ProjectContainer {
+    height: 325px;
+    display: flex;
+    margin: 1.5rem;
+    width: 100vw;
+    max-width: 100%;
+    text-align: left;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ProjectBar {
+    height: 250px;
+    width: 250px;
+    display: flex;
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    background: rgb(50, 50, 50);
+    margin: 1rem;
+    align-items: stretch;
+}
+
+.ProjectBar:hover {
+    transform: scale(1.01);
+}
+
+.ProjectBar h2{
+    color: rgb(255, 255, 128);
+}
+
+.ProjectName a {
+    text-decoration: none;
+    color: rgb(255, 255, 128)
+}
+
+.ProjectName a:hover {
+    color: white;
+}
+
+.ProjectButton {
+    font-weight: bold;
+    background-color: rgb(255, 255, 128);
+    color: rgb(50, 50, 50);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.ProjectButton:hover {
+    background-color: rgb(255, 255, 0);
+}

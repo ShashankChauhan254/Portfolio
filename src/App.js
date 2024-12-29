@@ -3,6 +3,9 @@ import Intro from './Components/Intro/intro.js';
 import About from './Components/About/about.js'
 import Skills from './Components/Skills/skills.js';
 import Education from './Components/Education/education.js';
+import Projects from './Components/Projects/projects.js';
+import Paper from './Components/ResearchPaper/paper.js';
+import Positions from './Components/Positions/positions.js';
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
       <About/>
       <Education/>
       <Skills/>
+      <Projects/>
+      <Paper/>
+      <Positions/>
     </div>
   );
 }

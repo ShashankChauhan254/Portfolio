@@ -1,0 +1,67 @@
+#ResearchPaper {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.ResearchPaperContainer {
+    height: 325px;
+    display: flex;
+    margin: 1.5rem;
+    width: 100vw;
+    max-width: 100%;
+    text-align: left;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.PaperBar {
+    height: 10vh;
+    width: 40vw;
+    display: flex;
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    background: rgb(50, 50, 50);
+    margin: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.PaperBar:hover {
+    transform: scale(1.01);
+}
+
+.PaperName h3{
+    color: rgb(255, 255, 128);
+}
+
+.PaperName a {
+    text-decoration: none;
+    color: rgb(255, 255, 128);
+}
+
+.PaperName a:hover {
+    color: white;
+}
+
+.PaperButton {
+    font-weight: bold;
+    background-color: rgb(255, 255, 128);
+    color: rgb(50, 50, 50);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.PaperButton:hover {
+    background-color: rgb(255, 255, 0);
+}

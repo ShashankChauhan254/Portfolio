@@ -30,7 +30,12 @@
     transform: scale(1.01);
 }
 
+.EducationBar h2{
+    color: rgb(255, 255, 128);
+}
+
 .EducationBarImg {
+    background-color: white;
     object-fit: cover;
     height: 5rem;
     width: 5rem;

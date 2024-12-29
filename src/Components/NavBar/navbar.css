@@ -32,7 +32,8 @@
 }
 
 .contectButton {
-    background: white;
+    font-weight: bold;
+    background: rgb(255, 255, 128);
     color: #000;
     border: none;
     display: flex;
