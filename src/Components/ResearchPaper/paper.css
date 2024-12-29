@@ -63,5 +63,6 @@
 }
 
 .PaperButton:hover {
+    transform: scale(1.1);
     background-color: rgb(255, 255, 0);
 }

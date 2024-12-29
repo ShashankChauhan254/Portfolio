@@ -6,6 +6,7 @@ import Education from './Components/Education/education.js';
 import Projects from './Components/Projects/projects.js';
 import Paper from './Components/ResearchPaper/paper.js';
 import Positions from './Components/Positions/positions.js';
+import Contact from './Components/Contact/contact.js';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Projects/>
       <Paper/>
       <Positions/>
+      <Contact/>
     </div>
   );
 }

@@ -52,5 +52,6 @@
 }
 
 .PositionButton:hover {
+    transform: scale(1.1);
     background-color: yellow;
 }
