@@ -21,7 +21,7 @@ const Intro = () => {
                 />
                 </span>
                 <p className='introPara'></p>
-                <a href='../../Assets/Resume.pdf'>
+                <a href='../Assets/Resume.pdf'>
                 <button className='btn'>
                     <img src={ResumeLogo} alt='Resume' className='ResumeLogo' />Resume
                 </button>
