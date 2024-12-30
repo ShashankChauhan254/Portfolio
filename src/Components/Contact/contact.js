@@ -18,11 +18,11 @@ const Contact = () => {
             <button className="SubmitButton" type="submit" value='send'>Submit</button>
         </form>
         <div className="ContactDetails">
-            <a herf="https://www.instagram.com/_.shashank._.25._/profilecard/"><img src={Instagram} alt="Instagram" className="ContactIcon" herf=''/></a>
-            <a herf="www.linkedin.com/in/shashank-chauhan-b602b9209"><img src={LinkedIn} alt="LinkedIn" className="ContactIcon" /></a>
-            <a herf="https://wa.me/916350452839"><img src={WhatsApp} alt="WhatsApp" className="ContactIcon" /></a>
-            <a herf="https://github.com/ShashankChauhan254"><img src={GitHub} alt="GitHub" className="ContactIcon" /></a>
-            <a herf="mailto:shashank250403@gmail.com"><img src={Email} alt="Email" className="ContactIcon" /></a>
+            <a href="https://www.instagram.com/_.shashank._.25._/profilecard/"><img src={Instagram} alt="Instagram" className="ContactIcon" herf=''/></a>
+            <a href="www.linkedin.com/in/shashank-chauhan-b602b9209"><img src={LinkedIn} alt="LinkedIn" className="ContactIcon" /></a>
+            <a href="https://wa.me/916350452839"><img src={WhatsApp} alt="WhatsApp" className="ContactIcon" /></a>
+            <a href="https://github.com/ShashankChauhan254"><img src={GitHub} alt="GitHub" className="ContactIcon" /></a>
+            <a href="mailto:shashank250403@gmail.com"><img src={Email} alt="Email" className="ContactIcon" /></a>
         </div>
         </section>
     );
