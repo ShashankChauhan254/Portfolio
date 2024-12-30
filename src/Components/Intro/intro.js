@@ -22,11 +22,11 @@ const Intro = () => {
                 />
                 </span>
                 <p className='introPara'></p>
-                <Link herf='https://drive.google.com/file/d/1'>
+                <a herf='../../Assets/Resume.pdf'>
                 <button className='btn'>
                     <img src={ResumeLogo} alt='Resume' className='ResumeLogo' />Resume
                 </button>
-                </Link>
+                </a>
             </div>
             <img src={bg} alt="Portfolio" className='bg' />
         </selection>
