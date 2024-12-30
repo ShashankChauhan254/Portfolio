@@ -1,9 +1,10 @@
-intro {
+#intro {
     height: calc(100vh - 4rem);
     width: 100vw;
     max-width: 75rem;
     margin: 0 auto;
     overflow: hidden;
+    padding-top: 2rem;
 }
 
 .bg {
