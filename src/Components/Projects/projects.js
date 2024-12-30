@@ -15,9 +15,9 @@ const Projects = () => {
                 </div>
                 <div className='ProjectBar'>
                     <div className='ProjectName'>
-                        <h2>Portfolio</h2>
+                        <h2>E-Commerce Website</h2>
                         <h4>Dec 2024 - Dec 2024</h4>
-                        <a href='https://fabulous-entremet-44a778.netlify.app/'><h4>Website</h4></a>
+                        <a href='https://funny-cucurucho-4a5ceb.netlify.app/'><h4>Website</h4></a>
                     </div>
                 </div>
                 <div className='ProjectBar'>
