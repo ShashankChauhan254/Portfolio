@@ -2,7 +2,6 @@ import React from 'react';
 import './intro.css';
 import bg from '../../Assets/My.png';
 import { ReactTyped } from 'react-typed';
-import { Link } from 'react-scroll';
 import ResumeLogo from '../../Assets/Resume.png'
 
 const Intro = () => {
@@ -22,7 +21,7 @@ const Intro = () => {
                 />
                 </span>
                 <p className='introPara'></p>
-                <a herf='../../Assets/Resume.pdf'>
+                <a href='../../Assets/Resume.pdf'>
                 <button className='btn'>
                     <img src={ResumeLogo} alt='Resume' className='ResumeLogo' />Resume
                 </button>
