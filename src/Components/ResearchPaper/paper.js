@@ -11,10 +11,6 @@ const allPaper = [
 const ResearchPaper = () => {
   const [visibleCount, setVisibleCount] = useState(3);
 
-  const handleSeeMore = () => {
-    setVisibleCount((prev) => prev + 3);
-  };
-
   return (
     <section className="paper-section ResearchPaper" id="paper">
       <h2 className="paper-heading">Research Paper</h2>
