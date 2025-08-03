@@ -6,21 +6,23 @@ const Experience = () => {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimate(true);
-        }
-      },
-      { threshold: 0.6 }
-    );
+  const currentSection = sectionRef.current;
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setAnimate(true);
+      }
+    },
+    { threshold: 0.6 }
+  );
 
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, []);
+  if (currentSection) observer.observe(currentSection);
+
+  return () => {
+    if (currentSection) observer.unobserve(currentSection);
+  };
+}, []);
 
   return (
     <div className={`timeline_container Experience ${animate ? "animate" : ""}`} ref={sectionRef}>
