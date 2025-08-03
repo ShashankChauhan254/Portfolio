@@ -1,33 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import "./positions.css";
 
-const Positions = () => {
-    return (
-        <section id="Positions">
-        <span className="Title">Positions</span>
-        <div className="PositionContainer">
-            <div className="PositionBar">
-            <div className="PositionName">
-                <h2>Member of Board of Academic Interaction, IIT Jodhpur</h2>
-                <h4>Dec. 2021 - Present</h4>
-            </div>
-            </div>
-            <div className="PositionBar">
-            <div className="PositionName">
-                <h2>Class Representative of B21 Artificial Intelligence and Data Science, IIT Jodhpur</h2>
-                <h4>Dec. 2021 - Present</h4>
-            </div>
-            </div>
-            <div className="PositionBar">
-            <div className="PositionName">
-                <h2>Head of the Aaftaab Fest PR and Marketing Team, IIT Jodhpur </h2>
-                <h4>Jan. 2024 - Feb. 2024</h4>
-            </div>
-            </div>
-        </div>
-        <button className="PositionButton">More Positions</button>
-        </section>
-    );
-}
+const allPOR = [
+  {
+    title: "Member, Board of Academic Interaction",
+    Location: ["IIT Jodhpur"],
+    Year: "Dec 2021 - Jul 2025"
+  },
+  {
+    title: "Class Representative, B21 AI & Data Science",
+    Location: ["IIT Jodhpur"],
+    Year: "Dec 2021 - Jul 2025"
+  },
+  {
+    title: "Head, PR & Marketing, Aaftaab Fest",
+    Location: ["IIT Jodhpur"],
+    Year: "Jan 2024 - Feb 2024"
+  },
+  {
+    title: "Assistant Head, Resources, Ignus Fest",
+    Location: ["IIT Jodhpur"],
+    Year: "Dec 2022 - Feb 2023"
+  },
+  {
+    title: "Assistant Head, PR, Prometeo Fest",
+    Location: ["IIT Jodhpur"],
+    Year: "Nov 2022 - Jan 2023"
+  },
+  {
+    title: "Assistant Head, ATS, Varchas Fest",
+    Location: ["IIT Jodhpur"],
+    Year: "Oct 2022 - Nov 2022"
+  },
+];
 
-export default Positions;
+const POR = () => {
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  const handleSeeMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
+
+  return (
+    <section className="pors-section Positions" id="pors">
+      <h2 className="pors-heading">Position of Responcibilities</h2>
+      <div className="pors-container">
+        {allPOR.slice(0, visibleCount).map((project, index) => (
+          <div className="por-card" key={index}>
+            <h3>{project.title}</h3>
+            <p>
+              {project.Location.join(", ")}
+            </p>
+            <p className="por-year">
+              {project.Year}
+            </p>
+          </div>
+        ))}
+      </div>
+      {visibleCount < allPOR.length && (
+        <button className="see-more" onClick={handleSeeMore}>
+          See More
+        </button>
+      )}
+    </section>
+  );
+};
+
+export default POR;

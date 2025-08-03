@@ -1,68 +1,83 @@
-#Project {
-    overflow: hidden;
-    width: 100vw;
-    max-width: 65rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.projects-section {
+  background-color: #1e1e1e;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  padding-top: 5rem;
+}
+
+.project-heading {
+  color: yellow;
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background-color: #505050;
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: left;
+  color: white;
+}
+
+.project-card h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.project-card p {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #000;
+}
+
+.project-card strong {
+  color: yellow;
+}
+
+.links a {
+  display: block;
+  color: yellow;
+  margin-top: 5px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.see-more {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.links {
     text-align: center;
-    margin: 0 auto;
-    padding-top: 2rem;
 }
 
-.ProjectContainer {
-    height: 325px;
-    display: flex;
-    margin: 1.5rem;
-    width: 100vw;
-    max-width: 100%;
-    text-align: left;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-}
-
-.ProjectBar {
-    height: 250px;
-    width: 250px;
-    display: flex;
-    padding: 1.5rem 2rem;
-    border-radius: 0.5rem;
-    background: rgb(50, 50, 50);
-    margin: 1rem;
-    align-items: stretch;
-}
-
-.ProjectBar:hover {
-    transform: scale(1.01);
-}
-
-.ProjectBar h2{
-    color: rgb(255, 255, 128);
-}
-
-.ProjectName a {
-    text-decoration: none;
-    color: rgb(255, 255, 128)
-}
-
-.ProjectName a:hover {
+.links a:hover {
     color: white;
 }
 
-.ProjectButton {
-    font-weight: bold;
-    background-color: rgb(255, 255, 128);
-    color: rgb(50, 50, 50);
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-    cursor: pointer;
+.project-card:hover {
+    transform: scale(1.01);
 }
 
-.ProjectButton:hover {
-    transform: scale(1.1);
-    background-color: rgb(255, 255, 0);
+.see-more:hover {
+    background-color: #e6b800;
+    color: black;
+    transform: scale(1.05);
 }

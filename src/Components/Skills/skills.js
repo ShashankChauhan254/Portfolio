@@ -1,29 +1,40 @@
 import React from 'react';
 import './skills.css';
-import GameLogo from '../../Assets/Game.png';
-import MLDLLogo from '../../Assets/MLDL.png';
-import WebLogo from '../../Assets/Web.png'
 
 const Skills = () => {
-    return (
-        <section id = 'skills'>
-            <span className='Title'>Skills</span>
-            <div className='SkillBars'>
-                <div className='SkillBar'>
-                    <img src={GameLogo} alt='' className='skillBarImg' />
-                    <div className='SkillName'><h2>Game Development</h2></div>
-                </div>
-                <div className='SkillBar'>
-                    <img src={MLDLLogo} alt='' className='skillBarImg' />
-                    <div className='SkillName'><h2>ML/DL</h2></div>
-                </div>
-                <div className='SkillBar'>
-                    <img src={WebLogo} alt='' className='skillBarImg' />
-                    <div className='SkillName'><h2>Web Development</h2></div>
-                </div>
-            </div>
-        </section>
-    );
-}
+  return (
+    <div className="skills-section Skills">
+      <h2 className="skills-title">Skills</h2>
+      <div className="skills-container">
+        <div className="skill-card">
+          <h3 className="card-title">Data Analyst</h3>
+          <p><span className="label">Language:</span> SQL, Python</p>
+          <p><span className="label">Libraries:</span> Pandas, Numpy, Matplotlib, Seaborn, Scikit-learn</p>
+          <p><span className="label">Tools:</span> MySQL, Power BI, Excel, Google Colab</p>
+        </div>
 
-export default Skills
+        <div className="skill-card">
+          <h3 className="card-title">Machine Learning</h3>
+          <p><span className="label">Language:</span> Python</p>
+          <p><span className="label">Libraries:</span> Pandas, Numpy, TensorFlow, PyTorch, Scikit-learn</p>
+          <p><span className="label">Tools:</span> VS Code, Google Colab, Excel</p>
+        </div>
+
+        <div className="skill-card">
+          <h3 className="card-title">Web Development</h3>
+          <p><span className="label">Language:</span> HTML, CSS, JS</p>
+          <p><span className="label">Libraries:</span> React JS, TailWind CSS</p>
+          <p><span className="label">Tools:</span> VS Code, GitHub, Netlify</p>
+        </div>
+
+        <div className="skill-card">
+          <h3 className="card-title">Game Development</h3>
+          <p><span className="label">Language:</span> C++</p>
+          <p><span className="label">Tools:</span> Unreal Engine</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Skills;

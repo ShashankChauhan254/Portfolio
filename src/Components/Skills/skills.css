@@ -1,4 +1,4 @@
-#skills {
+.skills-section {
     overflow: hidden;
     width: 100vw;
     max-width: 65rem;
@@ -11,7 +11,7 @@
     padding-top: 2rem;
 }
 
-.Title {
+.skills-title {
     color: yellow;
     font-size: 3rem;
     font-weight: 600;
@@ -19,30 +19,44 @@
     margin-bottom: 1.5rem;
 }
 
-.SkillBars {
-    margin: 1.5rem;
-    width: 100vw;
-    max-width: 80%;
-    text-align: left;
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.SkillBar {
-    display: flex;
-    padding: 1.5rem 2rem;
-    border-radius: 0.5rem;
-    background: rgb(50, 50, 50);
-    align-items: center;
-    margin: 1rem auto;
+.skill-card {
+  background-color: #646464;
+  border-radius: 20px;
+  padding: 20px 25px;
+  width: 280px;
+  text-align: left;
+  color: black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.SkillBar:hover {
+.skill-card:hover {
     transform: scale(1.01);
 }
 
-.skillBarImg {
-    object-fit: cover;
-    height: 5rem;
-    width: 5rem;
-    border-radius: 7rem;
-    margin-right: 3rem;
+.card-title {
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+  background-color: #646464;
+  text-align: center;
+}
+
+.skill-card p {
+  background-color: #646464;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.label {
+  background-color: #646464;
+  color: yellow;
+  font-weight: bold;
 }

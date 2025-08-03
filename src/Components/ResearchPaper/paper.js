@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./paper.css";
 
-const Paper = () => {
-    return (
-        <section id="ResearchPaper">
-        <span className="Title">Research Paper</span>
-        <div className="PaperContainer">
-            <div className="PaperBar">
-            <div className="PaperName">
-                <h3>Exact and Parameterized Algorithms for Window Minimization in Bipartite Arrangement</h3>
-                <h4>July 2024 - Nov 2024</h4>
-                <a href="https://drive.google.com/drive/folders/1eV8s1QGM1wbRuWR0tZ9wHVS0RXj7KvdO?usp=sharing"><h4>Paper</h4></a>
-            </div>
-            </div>
-        </div>
-        <button className="PaperButton">More Papers</button>
-        </section>
-    );
+const allPaper = [
+  {
+    title: "Exact and Parameterized Algorithms for Window Minimization in Bipartite Arrangement",
+    Publishers: ["Springer Publishers"],
+  },
+];
+
+const ResearchPaper = () => {
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  const handleSeeMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
+
+  return (
+    <section className="paper-section ResearchPaper" id="paper">
+      <h2 className="paper-heading">Research Paper</h2>
+      <div className="paper-container">
+        {allPaper.slice(0, visibleCount).map((project, index) => (
+          <div className="paper-card" key={index}>
+            <h3>{project.title}</h3>
+            <p>
+              <strong>Publishers:</strong> {project.Publishers.join(", ")}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
-export default Paper;
+export default ResearchPaper;

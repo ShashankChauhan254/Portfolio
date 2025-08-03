@@ -2,7 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 5rem;
+}
+
+h2 {
+    color: yellow;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .ContactContainer {
@@ -44,6 +52,13 @@
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     margin: 1rem;
+}
+
+.status {
+    color: yellow;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
 }
 
 .SubmitButton:hover {

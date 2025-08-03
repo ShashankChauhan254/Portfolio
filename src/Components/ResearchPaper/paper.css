@@ -1,69 +1,49 @@
-#ResearchPaper {
-    overflow: hidden;
-    width: 100vw;
-    max-width: 65rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 2rem;
+.paper-section {
+  background-color: #1e1e1e;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  padding-top: 5rem;
 }
 
-.ResearchPaperContainer {
-    height: 325px;
-    display: flex;
-    margin: 1.5rem;
-    width: 100vw;
-    max-width: 100%;
-    text-align: left;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
+.paper-heading {
+  color: yellow;
+  font-size: 3rem;
+  margin-bottom: 30px;
 }
 
-.PaperBar {
-    height: 10vh;
-    width: 40vw;
-    display: flex;
-    padding: 1.5rem 2rem;
-    border-radius: 0.5rem;
-    background: rgb(50, 50, 50);
-    margin: 1rem;
-    align-items: center;
-    justify-content: center;
+.paper-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.PaperBar:hover {
+.paper-card {
+  background-color: #505050;
+  padding: 20px;
+  border-radius: 20px;
+  width: 600px;
+  text-align: left;
+  color: white;
+}
+
+.paper-card h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.paper-card p {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #000;
+}
+
+.paper-card strong {
+  color: yellow;
+}
+
+.paper-card:hover {
     transform: scale(1.01);
-}
-
-.PaperName h3{
-    color: rgb(255, 255, 128);
-}
-
-.PaperName a {
-    text-decoration: none;
-    color: rgb(255, 255, 128);
-}
-
-.PaperName a:hover {
-    color: white;
-}
-
-.PaperButton {
-    font-weight: bold;
-    background-color: rgb(255, 255, 128);
-    color: rgb(50, 50, 50);
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-    cursor: pointer;
-}
-
-.PaperButton:hover {
-    transform: scale(1.1);
-    background-color: rgb(255, 255, 0);
 }

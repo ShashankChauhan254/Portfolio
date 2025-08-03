@@ -1,58 +1,68 @@
-#Positions {
-    overflow: hidden;
-    width: 100vw;
-    max-width: 65rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 2rem;
+.pors-section {
+  background-color: #1e1e1e;
+  padding: 40px;
+  text-align: center;
+  color: white;
+  padding-top: 5rem;
 }
 
-.PositionContainer {
-    height: 325px;
-    display: flex;
-    margin: 1.5rem;
-    width: 100vw;
-    max-width: 100%;
-    text-align: left;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
+.pors-heading {
+  color: yellow;
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-size: 3rem;
 }
 
-.PositionBar {
-    height: 250px;
-    width: 250px;
-    display: flex;
-    padding: 1.5rem 2rem;
-    border-radius: 0.5rem;
-    background: rgb(50, 50, 50);
-    margin: 1rem;
-    align-items: stretch;
+.pors-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.PositionBar:hover {
+.por-card {
+  background-color: #505050;
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  color: white;
+}
+
+.por-card h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.por-card p {
+  margin: 10px 0;
+  color: yellow;
+}
+
+.por-year {
+  display: block;
+  margin-top: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.see-more {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: yellow;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.por-card:hover {
     transform: scale(1.01);
 }
 
-.PositionBar h2{
-    color: rgb(255, 255, 128);
-}
-
-.PositionButton {
-    font-weight: bold;
-    background-color: rgb(255, 255, 128);
-    color: rgb(50, 50, 50);
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-}
-
-.PositionButton:hover {
-    transform: scale(1.1);
-    background-color: yellow;
+.see-more:hover {
+    background-color: #e6b800;
+    color: black;
+    transform: scale(1.05);
 }

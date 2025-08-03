@@ -8,14 +8,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0;
   padding-top: 5rem;
 }
 
 .timeline_title {
-  color: yellow;
   font-size: 3rem;
+  color: yellow;
   margin-bottom: 60px;
-  letter-spacing: 2px;  
+  letter-spacing: 2px;
 }
 
 .timeline_grid {
@@ -69,13 +70,13 @@
 }
 
 .yellow {
-  color: yellow;
-  font-weight: bold;
+  color: #ffcc00;
   font-size: 20px;
 }
 .box p {
   margin: 0;
   font-size: 20px;
+  font-weight:900;
   color: white;
 }
 

@@ -1,18 +1,19 @@
 import React from 'react';
 import './intro.css';
-import bg from '../../Assets/My.png';
+import bg from '../../Assets/profile.jpg';
 import { ReactTyped } from 'react-typed';
 import ResumeLogo from '../../Assets/Resume.png'
 
 const Intro = () => {
     return (
         <selection id='intro'>
+            <img src={bg} alt="Portfolio" className='bg' />
             <div className='IntroContent'>
                 <span className='hello'>Hello,<br /></span>
                 <span className='introText'>I'm <span className='introName'>Shashank</span><br />
                 <ReactTyped 
                   className='profession' 
-                  strings={["Software Developer", "Game Developer", "ML-DL Engineer", "Web Developer"]} 
+                  strings={["Data Analyst","ML-DL Engineer", "Web Developer", "Software Engineer", "Game Developer"]} 
                   typeSpeed={100} 
                   backSpeed={30} 
                   loop={true} 
@@ -21,13 +22,13 @@ const Intro = () => {
                 />
                 </span>
                 <p className='introPara'></p>
-                <a href='src/Assets/Resume.pdf'>
-                <button className='btn'>
-                    <img src={ResumeLogo} alt='Resume' className='ResumeLogo' />Resume
-                </button>
+                <a href='/Resume.pdf' target='_blank' rel='noopener noreferrer'>
+                  <button className='btn'>
+                    <img src={ResumeLogo} alt='Resume' className='ResumeLogo' />
+                    Resume
+                  </button>
                 </a>
             </div>
-            <img src={bg} alt="Portfolio" className='bg' />
         </selection>
     )
 }
