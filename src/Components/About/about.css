@@ -12,6 +12,14 @@
     font-weight: 600;
     padding-top: 3rem;
     margin-bottom: 1.5rem;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.About.inView .Title {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .Pera {
@@ -20,8 +28,37 @@
     text-align: center;
 }
 
+.Pera p {
+    margin: 0 0 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+    transition-delay: calc(var(--i, 0) * 120ms);
+}
+.About.inView .Pera p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .Quote {
     font-size: 1.5rem;
     color: rgb(255, 255, 128);
     font-weight: 600;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+    transition-delay: calc(var(--i, 0) * 120ms);
+}
+.About.inView .Quote {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .Title, .Pera p, .Quote {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
 }

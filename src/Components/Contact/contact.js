@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./contact.css";
 import Instagram from "../../Assets/Instagram.png";
 import LinkedIn from "../../Assets/LinkedIn.png";
 import WhatsApp from "../../Assets/WhatsApp.png";
 import GitHub from "../../Assets/GitHub.png";
 import Email from "../../Assets/Email.png";
-import { useState } from "react";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +15,25 @@ const Contact = () => {
   });
 
   const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
+
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,6 +41,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSending(true);
     setStatus("Sending...");
 
     const form = new FormData();
@@ -49,11 +68,21 @@ const Contact = () => {
     } catch (err) {
       console.error(err);
       setStatus("❌ Error occurred while sending.");
+    } finally {
+      setSending(false);
     }
   };
 
+  const socials = [
+    { href: "https://www.instagram.com/_.shashank._.25._/profilecard/", img: Instagram, alt: "Instagram" },
+    { href: "https://www.linkedin.com/in/shashank-chauhan-b602b9209", img: LinkedIn, alt: "LinkedIn" },
+    { href: "https://wa.me/916350452839", img: WhatsApp, alt: "WhatsApp" },
+    { href: "https://github.com/ShashankChauhan254", img: GitHub, alt: "GitHub" },
+    { href: "mailto:shashank250403@gmail.com", img: Email, alt: "Email" },
+  ];
+
   return (
-    <section id="Contact" className="Contact">
+    <section id="Contact" className={`Contact ${inView ? "inView" : ""}`} ref={sectionRef}>
       <h2>Contact Me</h2>
       <p>I’ll be glad to answer your queries and feel free to connect</p>
       <form onSubmit={handleSubmit} className="ContactForm">
@@ -63,6 +92,7 @@ const Contact = () => {
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
+          style={{ "--i": 0 }}
           required
         />
         <input
@@ -71,6 +101,7 @@ const Contact = () => {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
+          style={{ "--i": 1 }}
           required
         />
         <input
@@ -79,6 +110,7 @@ const Contact = () => {
           placeholder="Subject"
           value={formData.subject}
           onChange={handleChange}
+          style={{ "--i": 2 }}
           required
         />
         <textarea
@@ -87,17 +119,20 @@ const Contact = () => {
           rows="5"
           value={formData.message}
           onChange={handleChange}
+          style={{ "--i": 3 }}
           required
         ></textarea>
-        <button type="submit" className="SubmitButton">Send</button>
-        <p className="status">{status}</p>
+        <button type="submit" className="SubmitButton" style={{ "--i": 4 }} disabled={sending}>
+          {sending ? <span className="spinner" /> : "Send"}
+        </button>
+        {status && <p className="status">{status}</p>}
       </form>
         <div className="ContactDetails">
-            <a href="https://www.instagram.com/_.shashank._.25._/profilecard/"><img src={Instagram} alt="Instagram" className="ContactIcon" herf=''/></a>
-            <a href="https://www.linkedin.com/in/shashank-chauhan-b602b9209"><img src={LinkedIn} alt="LinkedIn" className="ContactIcon" /></a>
-            <a href="https://wa.me/916350452839"><img src={WhatsApp} alt="WhatsApp" className="ContactIcon" /></a>
-            <a href="https://github.com/ShashankChauhan254"><img src={GitHub} alt="GitHub" className="ContactIcon" /></a>
-            <a href="mailto:shashank250403@gmail.com"><img src={Email} alt="Email" className="ContactIcon" /></a>
+            {socials.map((s, i) => (
+              <a href={s.href} key={s.alt} style={{ "--i": i }} target="_blank" rel="noopener noreferrer">
+                <img src={s.img} alt={s.alt} className="ContactIcon" />
+              </a>
+            ))}
         </div>
     </section>
     );

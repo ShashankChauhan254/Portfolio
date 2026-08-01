@@ -34,10 +34,23 @@
   text-align: left;
   color: black;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+  /* staggered rise-in once section is in view */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .6s ease, transform .6s ease,
+              box-shadow .3s ease;
+  transition-delay: calc(var(--i, 0) * 150ms);
+}
+
+.skills-section.inView .skill-card {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .skill-card:hover {
-    transform: scale(1.01);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(255, 255, 0, 0.18);
 }
 
 .card-title {
@@ -47,16 +60,29 @@
   margin-bottom: 15px;
   background-color: #646464;
   text-align: center;
+  transition: color .25s ease;
+}
+
+.skill-card:hover .card-title {
+  color: yellow;
 }
 
 .skill-card p {
   background-color: #646464;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .label {
   background-color: #646464;
   color: yellow;
   font-weight: bold;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }

@@ -5,6 +5,7 @@
     margin: 0 auto;
     overflow: hidden;
     padding-top: 2rem;
+    position: relative;
 }
 
 .bg {
@@ -15,6 +16,15 @@
     object-fit: cover;
     height: 90vh;
     padding: 0rem 5rem 0rem 0rem;
+
+    /* slow zoom-out + fade in on load */
+    opacity: 0;
+    transform: scale(1.08);
+    animation: bgIn 1.4s ease forwards;
+}
+
+@keyframes bgIn {
+    to { opacity: 1; transform: scale(1); }
 }
 
 .IntroContent {
@@ -28,13 +38,33 @@
     justify-content: center;
 }
 
+/* shared entrance: slide up + fade, staggered via --d per element */
+.fadeUp {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: var(--d, 0s);
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .hello {
     font-size: 2rem;
     font-weight: 100;
+    display: inline-block;
 }
 
 .introName {
     color: yellow;
+    display: inline-block;
+    animation: nameGlow 3s ease-in-out infinite;
+}
+
+@keyframes nameGlow {
+    0%, 100% { text-shadow: 0 0 0px rgba(255, 255, 0, 0); }
+    50% { text-shadow: 0 0 18px rgba(255, 255, 0, 0.55); }
 }
 
 .btn {
@@ -45,6 +75,14 @@
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 2rem;
+    position: relative;
+    transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease;
+    animation: btnPulse 2.6s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(255, 255, 128, 0); }
+    50% { box-shadow: 0 0 16px rgba(255, 255, 128, 0.45); }
 }
 
 .ResumeLogo {
@@ -57,4 +95,13 @@
 .btn:hover {
     background-color: yellow;
     transform: scale(1.1);
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg, .fadeUp, .introName, .btn {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
 }

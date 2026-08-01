@@ -22,7 +22,6 @@
 .timeline_grid {
   width: 70%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   position: relative;
   max-width: 1000px;
@@ -67,6 +66,24 @@
   border-radius: 50%;
   z-index: 2;
   position: relative;
+
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(.34, 1.56, .64, 1), box-shadow .4s ease;
+}
+
+.timeline_container.animate .dot1 { transition-delay: 0.4s; transform: scale(1); }
+.timeline_container.animate .dot2 { transition-delay: 0.9s; transform: scale(1); }
+
+.dot.current {
+  background-color: yellow;
+}
+.timeline_container.animate .dot.current {
+  animation: dotGlow 2.2s ease-in-out 1.3s infinite;
+}
+
+@keyframes dotGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 204, 0, 0); }
+  50% { box-shadow: 0 0 14px rgba(255, 204, 0, 0.75); }
 }
 
 .yellow {
@@ -93,3 +110,58 @@
 .delay1 { transition-delay: 0.3s; }
 .delay2 { transition-delay: 0.6s; }
 .delay3 { transition-delay: 0.9s; }
+
+/* bullet-point tooltip on each node */
+.tooltipWrap {
+  position: relative;
+  cursor: default;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: 280px;
+  background: #262626;
+  border: 1px solid rgba(255, 204, 0, 0.35);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  z-index: 5;
+}
+
+.tooltipWrap:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltipItem {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #e8e8e8;
+}
+.tooltipItem::before {
+  content: "— ";
+  color: #ffcc00;
+}
+
+@media (max-width: 700px) {
+  .tooltip { width: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline_grid::before, .dot, .fade, .tooltip {
+    transition: none;
+    animation: none;
+  }
+  .timeline_container.animate .dot { transform: scale(1); }
+  .timeline_container.animate .fade { opacity: 1; transform: scale(1); }
+}

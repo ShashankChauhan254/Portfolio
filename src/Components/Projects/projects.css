@@ -26,12 +26,33 @@
   width: 300px;
   text-align: left;
   color: white;
+  position: relative;
+
+  /* entrance: staggered by column position, plays for every newly-mounted card */
+  opacity: 0;
+  transform: translateY(28px);
+  animation: cardIn 0.6s ease forwards;
+  animation-delay: calc(var(--i, 0) * 150ms);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
+}
+
+@keyframes cardIn {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .project-card h3 {
   font-size: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   text-align: center;
+}
+
+.project-date {
+  text-align: center;
+  font-size: 13px !important;
+  color: #cfcfcf !important;
+  margin-top: 0 !important;
 }
 
 .project-card p {
@@ -62,6 +83,7 @@
   border-radius: 25px;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .links {
@@ -73,11 +95,65 @@
 }
 
 .project-card:hover {
-    transform: scale(1.01);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 204, 0, 0.4);
 }
 
 .see-more:hover {
     background-color: #e6b800;
     color: black;
     transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 204, 0, 0.4);
+}
+
+/* bullet tooltip, shown on hover */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: 280px;
+  background: #262626;
+  border: 1px solid rgba(255, 204, 0, 0.4);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  z-index: 6;
+}
+
+.project-card:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltipItem {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #e8e8e8;
+}
+.tooltipItem::before {
+  content: "— ";
+  color: #ffcc00;
+}
+
+@media (max-width: 700px) {
+  .tooltip { width: 220px; left: 0; transform: translateY(6px); }
+  .project-card:hover .tooltip { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card, .tooltip {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }

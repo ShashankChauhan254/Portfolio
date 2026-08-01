@@ -10,25 +10,87 @@
     justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 10;
     background-blend-mode: color;
+    transition: height .35s ease, padding .35s ease, background-color .35s ease,
+                box-shadow .35s ease, backdrop-filter .35s ease;
+}
+
+/* shrinks and gains a shadow once you scroll past the hero */
+.navbar.scrolled {
+    height: 3.1rem;
+    padding: .5rem 2rem;
+    background-color: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .logo {
     object-fit: cover;
     height: 4rem;
     width: 4rem;
+    transition: height .35s ease, width .35s ease, transform .3s ease;
+}
+.navbar.scrolled .logo {
+    height: 2.6rem;
+    width: 2.6rem;
+}
+.logo:hover {
+    transform: rotate(-6deg) scale(1.08);
+}
+
+.decktopMenu {
+    display: flex;
+    align-items: center;
 }
 
 .decktopMenuItems {
+    position: relative;
     margin: 1rem;
     cursor: pointer;
+    color: #e8e8e8;
+    transition: color .2s ease;
+
+    /* staggered fade/slide-in on first load */
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: navItemIn .5s ease forwards;
+    animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@keyframes navItemIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* animated underline that grows from the center */
+.decktopMenuItems::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0%;
+    height: 1px;
+    background: yellow;
+    transition: width .25s ease, left .25s ease;
 }
 
 .decktopMenuItems:hover {
     color: yellow;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid yellow;
+}
+.decktopMenuItems:hover::after {
+    width: 100%;
+    left: 0%;
+}
+
+/* current section, driven by react-scroll's spy */
+.decktopMenuItems.activeLink {
+    color: yellow;
+}
+.decktopMenuItems.activeLink::after {
+    width: 100%;
+    left: 0%;
+    background: yellow;
 }
 
 .contactButton {
@@ -41,12 +103,15 @@
     justify-content: center;
     padding: 0 1rem;
     border-radius: 2rem;
+    transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+    box-shadow: 0 0 0 rgba(255, 255, 128, 0);
 }
 
 .contactButton:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
     background: yellow;
     color: #000;
+    box-shadow: 0 0 18px rgba(255, 255, 128, 0.55);
 }
 
 .contactIcon {
@@ -54,4 +119,77 @@
     height: 1rem;
     width: 1rem;
     margin: 1rem;
+}
+
+.decktopOnly { display: flex; }
+.mobileOnly { display: none; }
+
+/* hamburger, hidden on desktop */
+.menuToggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 12;
+}
+.menuToggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #e8e8e8;
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .3s ease, background .3s ease;
+}
+.menuToggle.open span {
+    background: yellow;
+}
+.menuToggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menuToggle.open span:nth-child(2) { opacity: 0; }
+.menuToggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.menuBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 9;
+}
+
+@media (max-width: 860px) {
+    .navbar { max-width: 100vw; padding: .8rem 1.25rem; }
+    .navbar.scrolled { padding: .5rem 1.25rem; }
+
+    .decktopOnly { display: none; }
+    .menuToggle { display: flex; }
+
+    .decktopMenu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(78vw, 320px);
+        background: rgba(18, 18, 18, 0.98);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: .5rem;
+        padding: 2rem;
+        transform: translateX(100%);
+        transition: transform .35s ease;
+        z-index: 11;
+    }
+    .decktopMenu.open {
+        transform: translateX(0);
+    }
+    .decktopMenuItems {
+        margin: .6rem 0;
+        font-size: 1.1rem;
+    }
+    .mobileOnly {
+        margin-top: 1.5rem;
+    }
 }

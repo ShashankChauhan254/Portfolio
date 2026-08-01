@@ -1,37 +1,71 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './skills.css';
 
+const SKILL_CARDS = [
+  {
+    title: "Data Analyst",
+    rows: [
+      { label: "Language", value: "SQL (Joins, Subqueries, Views), Python" },
+      { label: "Libraries", value: "Pandas, NumPy, Matplotlib, Scikit-learn" },
+      { label: "Tools", value: "MySQL, Power BI, Advanced Excel (Pivot Tables, VLOOKUP), Google Colab" },
+    ],
+  },
+  {
+    title: "Machine Learning",
+    rows: [
+      { label: "Language", value: "Python" },
+      { label: "Libraries", value: "Pandas, NumPy, TensorFlow, Keras, Scikit-learn" },
+      { label: "Tools", value: "VS Code, Google Colab, OpenCV" },
+    ],
+  },
+  {
+    title: "Web Development",
+    rows: [
+      { label: "Language", value: "HTML, CSS, JavaScript" },
+      { label: "Libraries", value: "React.js, Tailwind CSS" },
+      { label: "Tools", value: "VS Code, GitHub, Netlify" },
+    ],
+  },
+  {
+    title: "Game Development",
+    rows: [
+      { label: "Language", value: "C++" },
+      { label: "Tools", value: "Unreal Engine" },
+    ],
+  },
+];
+
 const Skills = () => {
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="skills-section Skills">
+    <div className={`skills-section Skills ${inView ? 'inView' : ''}`} ref={sectionRef}>
       <h2 className="skills-title">Skills</h2>
       <div className="skills-container">
-        <div className="skill-card">
-          <h3 className="card-title">Data Analyst</h3>
-          <p><span className="label">Language:</span> SQL, Python</p>
-          <p><span className="label">Libraries:</span> Pandas, Numpy, Matplotlib, Seaborn, Scikit-learn</p>
-          <p><span className="label">Tools:</span> MySQL, Power BI, Excel, Google Colab</p>
-        </div>
-
-        <div className="skill-card">
-          <h3 className="card-title">Machine Learning</h3>
-          <p><span className="label">Language:</span> Python</p>
-          <p><span className="label">Libraries:</span> Pandas, Numpy, TensorFlow, PyTorch, Scikit-learn</p>
-          <p><span className="label">Tools:</span> VS Code, Google Colab, Excel</p>
-        </div>
-
-        <div className="skill-card">
-          <h3 className="card-title">Web Development</h3>
-          <p><span className="label">Language:</span> HTML, CSS, JS</p>
-          <p><span className="label">Libraries:</span> React JS, TailWind CSS</p>
-          <p><span className="label">Tools:</span> VS Code, GitHub, Netlify</p>
-        </div>
-
-        <div className="skill-card">
-          <h3 className="card-title">Game Development</h3>
-          <p><span className="label">Language:</span> C++</p>
-          <p><span className="label">Tools:</span> Unreal Engine</p>
-        </div>
+        {SKILL_CARDS.map((card, i) => (
+          <div className="skill-card" style={{ '--i': i }} key={card.title}>
+            <h3 className="card-title">{card.title}</h3>
+            {card.rows.map((row) => (
+              <p key={row.label}><span className="label">{row.label}:</span> {row.value}</p>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

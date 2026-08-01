@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./positions.css";
 
 const allPOR = [
@@ -36,17 +36,34 @@ const allPOR = [
 
 const POR = () => {
   const [visibleCount, setVisibleCount] = useState(3);
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleSeeMore = () => {
     setVisibleCount((prev) => prev + 3);
   };
 
   return (
-    <section className="pors-section Positions" id="pors">
-      <h2 className="pors-heading">Position of Responcibilities</h2>
-      <div className="pors-container">
+    <section className="pors-section Positions" id="Positions" ref={sectionRef}>
+      <h2 className="pors-heading">Positions of Responsibilities</h2>
+      <div className={`pors-container ${inView ? "inView" : ""}`}>
         {allPOR.slice(0, visibleCount).map((project, index) => (
-          <div className="por-card" key={index}>
+          <div className="por-card" style={{ "--i": index % 3 }} key={project.title}>
             <h3>{project.title}</h3>
             <p>
               {project.Location.join(", ")}

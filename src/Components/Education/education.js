@@ -1,6 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./education.css"; 
 
+const COURSEWORK = [
+  "Probability, Statistics & Stochastic Processes",
+  "Data Visualization",
+  "Statistical Inference & Simulation Techniques",
+  "Complex Analysis",
+  "Intro to Financial Engineering",
+  "Mathematics for Economics",
+  "Data Structures & Algorithms",
+  "Pattern Recognition & Machine Learning",
+  "Data Engineering",
+  "Deep Learning",
+];
+
 const Education = () => {
   const sectionRef = useRef(null);
   const [animate, setAnimate] = useState(false);
@@ -34,7 +47,7 @@ const Education = () => {
             <span className="yellow">2018</span>
           </div>
           <div className="box line_col">
-            <div className="dot"/>
+            <div className="dot dot1"/>
           </div>
           <div className="box bottom">
             <div>
@@ -52,7 +65,7 @@ const Education = () => {
             </div>
           </div>
           <div className="box line_col">
-            <div className="dot" />
+            <div className="dot dot2" />
           </div>
           <div className="box bottom">
             <span className="yellow">2020</span>
@@ -61,15 +74,20 @@ const Education = () => {
 
         <div className="pair_column fade delay3">
           <div className="box top">
-            <span className="yellow">2025</span>
+            <span className="yellow">June 2026</span>
           </div>
           <div className="box line_col">
-            <div className="dot" />
+            <div className="dot dot3 current" />
           </div>
           <div className="box bottom">
-            <div>
-              <span className="yellow">BTech</span>
+            <div className="tooltipWrap">
+              <span className="yellow">B.Tech, AI &amp; Data Science</span>
               <p>IIT Jodhpur</p>
+              <div className="tooltip">
+                {COURSEWORK.map((c) => (
+                  <span key={c} className="tooltipItem">{c}</span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

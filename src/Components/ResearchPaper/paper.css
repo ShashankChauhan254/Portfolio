@@ -26,12 +26,28 @@
   width: 600px;
   text-align: left;
   color: white;
+
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.ResearchPaper.animate .paper-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .paper-card h3 {
   font-size: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   text-align: center;
+}
+
+.paper-meta {
+  text-align: center;
+  font-size: 14px !important;
+  color: #cfcfcf !important;
+  margin: 0 0 10px !important;
 }
 
 .paper-card p {
@@ -44,6 +60,73 @@
   color: yellow;
 }
 
+.paper-bullets {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.paper-bullets li {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e8e8e8;
+  padding-left: 18px;
+  position: relative;
+
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: calc(0.5s + var(--i, 0) * 250ms);
+}
+
+.paper-bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #ffcc00;
+}
+
+.ResearchPaper.animate .paper-bullets li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.paper-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: yellow;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 15px;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease, color 0.2s ease;
+  transition-delay: calc(0.5s + var(--i, 0) * 250ms);
+}
+
+.ResearchPaper.animate .paper-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.paper-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 .paper-card:hover {
-    transform: scale(1.01);
+    transform: scale(1.015);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-card, .paper-bullets li, .paper-link {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
